@@ -2,6 +2,8 @@ package com.luv2code.junitdemo;
 
 import org.junit.jupiter.api.*;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class DemoUtilsTest {
@@ -72,5 +74,26 @@ class DemoUtilsTest {
         assertTrue(demoUtils.isGreater(number1,number2), "This should return true");
         assertFalse(demoUtils.isGreater(number2,number1), "This should return false");
 
+    }
+
+    @Test
+    @DisplayName("Array Equals")
+    void testArrayEquals(){
+        String[] test = {"A", "B", "C"};
+        assertArrayEquals(test, demoUtils.getFirstThreeLettersOfAlphabet(), "Arrays should be the same");
+    }
+
+    @Test
+    @DisplayName("Iterable Equals")
+    void testIterableEquals(){
+        List<String> test = List.of("luv", "2", "code");
+        assertIterableEquals(test, demoUtils.getAcademyInList(), "Expected list should be same as the actual list");
+    }
+
+    @Test
+    @DisplayName("Lines Match")
+    void testLinesMatch(){
+        List<String> test = List.of("luv", "2", "code");
+        assertLinesMatch(test, demoUtils.getAcademyInList(), "Lines should match");
     }
 }
