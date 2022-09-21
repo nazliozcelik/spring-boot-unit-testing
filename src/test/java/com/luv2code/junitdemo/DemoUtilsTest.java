@@ -7,6 +7,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@TestMethodOrder(MethodOrderer.DisplayName.class)
 class DemoUtilsTest {
 
     DemoUtils demoUtils;
@@ -40,7 +41,9 @@ class DemoUtilsTest {
         //DemoUtils demoUtils = new DemoUtils();
 
         assertEquals(6, demoUtils.add(2,4),"2+4 must be 6");
+        assertEquals(16, demoUtils.multiply(4,4), "4*4 must be 16");
         assertNotEquals(6, demoUtils.add(1,9), "1+9 must not be 6");
+        assertNotEquals(12, demoUtils.multiply(4,4), "4*4 must not be 12");
     }
 
     @Test
